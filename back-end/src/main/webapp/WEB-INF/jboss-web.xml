@@ -1,0 +1,4 @@
+<jboss-web>
+    <context-root>vmstataudit</context-root>
+
+</jboss-web>

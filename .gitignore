@@ -1,0 +1,5 @@
+front-end/build
+npm-debug.log
+front-end/node_modules
+back-end/target
+*.iml
