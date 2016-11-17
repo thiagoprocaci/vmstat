@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class MachineListFactory {
 
-    public List<Machine> create(Collection<String> ipList) {
+    public List<Machine> create(Iterable<String> ipList) {
         List<Machine> machineList = new ArrayList<>();
         if(ipList != null) {
             for(String ip: ipList) {

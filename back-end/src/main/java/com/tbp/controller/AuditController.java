@@ -2,12 +2,16 @@ package com.tbp.controller;
 
 
 
+import com.tbp.controller.dto.MemoryStatus;
+import com.tbp.controller.factory.MemoryStatusListFactory;
 import com.tbp.domain.Audit;
 import com.tbp.domain.AuditFactory;
 import com.tbp.repository.AuditRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
@@ -18,6 +22,8 @@ public class AuditController {
     AuditFactory auditFactory;
     @Autowired
     AuditRepository auditRepository;
+    @Autowired
+    MemoryStatusListFactory memoryStatusListFactory;
 
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
@@ -56,6 +62,12 @@ public class AuditController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public Iterable<Audit> list() {
         return auditRepository.findAll();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/memory", method = RequestMethod.GET)
+    public List<MemoryStatus> listMemoryStatus() {
+        return memoryStatusListFactory.create(auditRepository.findAll());
     }
 
 }

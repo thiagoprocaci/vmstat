@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function getAuditList() {
   return function(dispatch) {
-    axios.get("http://localhost:8081/audit/")
+    axios.get("http://localhost:8081/audit/memory")
       .then((response) => {
         dispatch({type: "FETCH_AUDIT_SUCCESS", payload: response.data})
       })
