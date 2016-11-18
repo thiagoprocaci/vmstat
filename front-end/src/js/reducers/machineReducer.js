@@ -1,20 +1,20 @@
 export default function reducer(state={
-    auditList: [],    
+    machineList: [],    
     error: null,
   }, action) {
 
     switch (action.type) {      
-      case "FETCH_AUDIT_SUCCESS": {
+      case "FETCH_MACHINE_SUCCESS": {
         return {
           ...state,          
-          auditList: action.payload,
+          machineList: action.payload,
           error : null,
         }
       }
-      case "FETCH_AUDIT_REJECTED": {
+      case "FETCH_MACHINE_REJECTED": {
         return {
           ...state,          
-          auditList: [],
+          machineList: [],
           error: action.payload,
         }
       }
@@ -22,5 +22,3 @@ export default function reducer(state={
     }
     return state
 }
-
-

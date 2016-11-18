@@ -43,7 +43,7 @@ class Navigation extends React.Component {
           <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="#">Mail Box</a>
+                <a href="#">Charts</a>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>

@@ -5,6 +5,7 @@ import user from "./userReducer"
 import login from "./loginReducer"
 import mail from "./mailReducer"
 import audit from "./auditReducer"
+import machine from "./machineReducer"
 
 export default combineReducers({
   tweets,
@@ -12,4 +13,5 @@ export default combineReducers({
   login,
   mail,
   audit,
+  machine,
 })

@@ -20,7 +20,7 @@ const app = document.getElementById('app')
 ReactDOM.render(<Provider store={store}>
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute component={MailBox}/>
+      <IndexRoute component={VmstatCharts}/>
       <Route path="settings" name="settings" component={Settings}></Route>
       <Route path="mailBox" name="mailBox" component={MailBox}></Route>
       <Route path="vmstatCharts" name="vmstatCharts" component={VmstatCharts}></Route>     
