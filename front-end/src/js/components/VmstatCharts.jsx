@@ -21,13 +21,17 @@ class VmstatCharts extends React.Component {
     this.props.dispatch(getMachineList())   
   }
 
+  selectMachine(a) {  	
+  	console.log(a)
+  }
+
   render() {	 
 
 	const { auditList, machineList  } = this.props;		
   	return (
   	<div>
 	  	<div>
-	  		<MachineSelector machineList={machineList} />
+	  		<MachineSelector machineList={machineList} onSelectMachine={this.selectMachine} />
 	  	</div>
 	  	<div>
 			<LineChart width={800} height={600} data={auditList}>

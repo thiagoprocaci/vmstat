@@ -19,9 +19,10 @@ class MachineSelector extends React.Component {
     this.state = {selectedMachineIp : ""};
   }   
 
-  selectMachineIp(event) {
+  selectMachineIp(event) {  
     let selectedMachineIp = event.target.value
     this.setState( {selectedMachineIp : selectedMachineIp});
+    this.props.onSelectMachine(selectedMachineIp)
   }
 
   render() {     
