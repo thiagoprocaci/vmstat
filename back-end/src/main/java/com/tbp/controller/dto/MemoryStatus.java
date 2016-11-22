@@ -4,15 +4,12 @@ import com.tbp.domain.Audit;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
 public class MemoryStatus {
 
     public static final double CONVERTER = 1e-6;
     public static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-    public static final String DECIMAL_FORMAT = "#0.00";
     private static final String UNIT_MEASUREMENT = "GB";
     public static final int PLACES = 2;
 
@@ -26,7 +23,6 @@ public class MemoryStatus {
 
     public MemoryStatus(Audit audit) {
         // convert kb to Gb
-        NumberFormat formatter = new DecimalFormat(DECIMAL_FORMAT);
         this.totalMemory = round(audit.getTotalMemory() * CONVERTER, PLACES);
         this.usedMemory = round(audit.getUsedMemory() * CONVERTER, PLACES);
         this.activeMemory = round(audit.getActiveMemory() * CONVERTER, PLACES);

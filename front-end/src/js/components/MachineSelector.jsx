@@ -15,14 +15,22 @@ import SelectOptionWrapper from './wrapper/SelectOptionWrapper.jsx';
 class MachineSelector extends React.Component {
   
   constructor(props) {
-    super(props);
-    this.state = {selectedMachineIp : ""};
+    super(props);    
   }   
 
   selectMachineIp(event) {  
-    let selectedMachineIp = event.target.value
-    this.setState( {selectedMachineIp : selectedMachineIp});
-    this.props.onSelectMachine(selectedMachineIp)
+    let selectedMachineIp = event.target.value    
+    if(selectedMachineIp) {         
+      for (var i = 0; i < this.props.machineList.length; i++) {
+        if(this.props.machineList[i] && this.props.machineList[i].ip === selectedMachineIp) {
+          this.props.onSelectMachine(this.props.machineList[i])
+          break
+        }
+      }      
+    } else {
+      this.props.onSelectMachine(null)
+    }
+    
   }
 
   render() {     

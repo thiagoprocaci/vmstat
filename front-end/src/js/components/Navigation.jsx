@@ -46,17 +46,8 @@ class Navigation extends React.Component {
                 <a href="#">Charts</a>
               </Navbar.Brand>
             </Navbar.Header>
-            <Nav>
-              <NavItem eventKey={1} href="#settings">Settings</NavItem>
-              <NavItem eventKey={2} href="#">Link</NavItem>              
-              <NavDropdown id="dropdownAction" eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem id="action" eventKey={3.1}>Action</MenuItem>
-                <MenuItem id="action2" eventKey={3.2}>Another action</MenuItem>
-                <MenuItem id="action3" eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider />
-                <MenuItem id="action4" eventKey={3.3}>Separated link</MenuItem>
-              </NavDropdown>
-              <NavItem eventKey={4} href="#vmstatCharts">Charts</NavItem>
+            <Nav>              
+              <NavItem eventKey={1} href="#vmstatCharts">Charts</NavItem>
             </Nav>
             <Nav pullRight>
               <NavDropdown id="dropdownLogout" eventKey={1}  title={"Welcome " +  currentUser.name + "!"}>

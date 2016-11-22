@@ -15,5 +15,5 @@ public interface AuditRepository extends CrudRepository<Audit, Long> {
 
     List<Audit> findByIpRunnerMachine(String ipRunnerMachine);
 
-
+    List<Audit> findTop4ByIpRunnerMachineOrderByDateDesc(String ipRunnerMachine);
 }
