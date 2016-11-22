@@ -19,7 +19,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "babel-jest": "^14.1.0",
+    "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
@@ -30,7 +30,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
-    "jest": "^14.1.0",
+    "jest": "^17.0.2",
     "react-test-renderer": "^15.3.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -43,8 +43,8 @@
     "build": "./node_modules/.bin/webpack -d --watch --display-error-details",
     "build-nowatch": "./node_modules/.bin/webpack -d --display-error-details"
   },
-  "jest": {
-    "automock": false
+  "jest": {    
+    "testEnvironment": "node"
   },
   "author": "",
   "license": "ISC"
