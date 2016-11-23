@@ -8,16 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class MemoryStatusListFactory {
+public class MemoryStatusListFactory extends StatusListFactory {
 
-    public List<MemoryStatus> create(Iterable<Audit> auditList) {
-        List<MemoryStatus> memoryStatusList = new ArrayList<>();
-        if(auditList != null) {
-            for(Audit a: auditList) {
-                memoryStatusList.add(new MemoryStatus(a));
-            }
-        }
-        return memoryStatusList;
+    @Override
+    public Object createInstance(Audit a) {
+        return new MemoryStatus(a);
     }
 
 }

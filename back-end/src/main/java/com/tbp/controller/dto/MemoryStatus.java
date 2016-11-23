@@ -4,14 +4,14 @@ import com.tbp.domain.Audit;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.SimpleDateFormat;
 
-public class MemoryStatus {
 
-    public static final double CONVERTER = 1e-6;
-    public static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-    private static final String UNIT_MEASUREMENT = "GB";
-    public static final int PLACES = 2;
+public class MemoryStatus extends Status {
+
+    static final double CONVERTER = 1e-6;
+
+    static final String UNIT_MEASUREMENT = "GB";
+    static final int PLACES = 2;
 
     private Double totalMemory;
     private Double usedMemory;
@@ -19,9 +19,10 @@ public class MemoryStatus {
     private Double inactiveMemory;
     private Double freeMemory;
     private Double bufferMemory;
-    private String date;
+
 
     public MemoryStatus(Audit audit) {
+        super(audit);
         // convert kb to Gb
         this.totalMemory = round(audit.getTotalMemory() * CONVERTER, PLACES);
         this.usedMemory = round(audit.getUsedMemory() * CONVERTER, PLACES);
@@ -29,8 +30,7 @@ public class MemoryStatus {
         this.inactiveMemory = round(audit.getInactiveMemory() * CONVERTER, PLACES);
         this.freeMemory = round(audit.getFreeMemory() * CONVERTER, PLACES);
         this.bufferMemory = round(audit.getBufferMemory() * CONVERTER, PLACES);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
-        this.date = simpleDateFormat.format(audit.getDate());
+
     }
 
     static double round(double value, int places) {
@@ -67,7 +67,4 @@ public class MemoryStatus {
         return UNIT_MEASUREMENT;
     }
 
-    public String getDate() {
-        return date;
-    }
 }
