@@ -11,11 +11,11 @@ class MemoryLineChart extends React.Component {
 
   render() {      
     let html = (<div></div>);       
-    if(this.props.auditList && this.props.auditList.length > 0) {
+    if(this.props.memoryStatusList && this.props.memoryStatusList.length > 0) {
       html = (
         <div>
           Memory Chart (GB)
-          <LineChart width={800} height={600} data={this.props.auditList}>
+          <LineChart width={800} height={600} data={this.props.memoryStatusList}>
                  <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
                  <YAxis/>
                  <CartesianGrid strokeDasharray="3 3"/>

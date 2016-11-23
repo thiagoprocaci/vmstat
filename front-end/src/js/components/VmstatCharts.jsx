@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 import MachineSelector from './MachineSelector.jsx';
 import MemoryLineChart from './chart/MemoryLineChart.jsx';
+import CpuLineChart from './chart/CpuLineChart.jsx';
+import PagesLineChart from './chart/PagesLineChart.jsx';
 
 
 import { getAuditList } from "../actions/auditActions";
@@ -10,7 +12,9 @@ import { getMachineList } from "../actions/machineActions";
 
 @connect((store) => {
   return {
-    auditList: store.audit.auditList,
+    memoryStatusList: store.audit.memoryStatusList,
+    pagesStatusList: store.audit.pagesStatusList,
+    cpuStatusList: store.audit.cpuStatusList,
     machineList: store.machine.machineList
   };
 })
@@ -29,7 +33,7 @@ class VmstatCharts extends React.Component {
   }
 
   render() { 
-	const { machineList, auditList  } = this.props;			
+	const { machineList, memoryStatusList, pagesStatusList, cpuStatusList  } = this.props;			
 	
 	let html;	
 	html =  (<div>			  	
@@ -37,8 +41,16 @@ class VmstatCharts extends React.Component {
 			  		<MachineSelector machineList={machineList} onSelectMachine={this.selectMachine.bind(this)} />
 			  	</div>
 			  	<div>
-					<MemoryLineChart auditList={auditList}></MemoryLineChart>
-			    </div>			    			    			    
+					<MemoryLineChart memoryStatusList={memoryStatusList}></MemoryLineChart>
+			    </div>		
+			    <div>
+					<CpuLineChart cpuStatusList={cpuStatusList}></CpuLineChart>
+			    </div>		
+			    <div>
+					<PagesLineChart pagesStatusList={pagesStatusList}></PagesLineChart>
+			    </div>
+
+			    	    			    			    
 			  </div> 
 		    )
 	

@@ -1,5 +1,7 @@
 export default function reducer(state={
-    auditList: [],    
+    memoryStatusList: [],    
+    pagesStatusList: [],    
+    cpuStatusList: [],        
     error: null,
   }, action) {
 
@@ -7,14 +9,18 @@ export default function reducer(state={
       case "FETCH_AUDIT_SUCCESS": {
         return {
           ...state,          
-          auditList: action.payload,
+          memoryStatusList: action.payload.memoryStatusList,
+          pagesStatusList: action.payload.pagesStatusList,
+          cpuStatusList: action.payload.cpuStatusList,
           error : null,
         }
       }
       case "FETCH_AUDIT_REJECTED": {
         return {
           ...state,          
-          auditList: [],
+          memoryStatusList: [],    
+          pagesStatusList: [],    
+          cpuStatusList: [],
           error: action.payload,
         }
       }

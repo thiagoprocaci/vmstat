@@ -1,17 +1,14 @@
 package com.tbp.controller;
 
 
-
-import com.tbp.controller.dto.MemoryStatus;
-import com.tbp.controller.factory.MemoryStatusListFactory;
+import com.tbp.controller.dto.StatusGroup;
+import com.tbp.controller.factory.StatusGroupFactory;
 import com.tbp.domain.Audit;
 import com.tbp.domain.AuditFactory;
 import com.tbp.repository.AuditRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
 import java.util.List;
 
 
@@ -24,7 +21,7 @@ public class AuditController {
     @Autowired
     AuditRepository auditRepository;
     @Autowired
-    MemoryStatusListFactory memoryStatusListFactory;
+    StatusGroupFactory statusGroupFactory;
 
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
@@ -66,12 +63,10 @@ public class AuditController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/memory", method = RequestMethod.GET)
-    public List<MemoryStatus> listMemoryStatus(@RequestParam(value = "ipRunnerMachine") String ipRunnerMachine) {
+    @RequestMapping(value = "/status", method = RequestMethod.GET)
+    public StatusGroup listStatus(@RequestParam(value = "ipRunnerMachine") String ipRunnerMachine) {
         List<Audit> auditList = auditRepository.findTop4ByIpRunnerMachineOrderByDateDesc(ipRunnerMachine);
-        List<MemoryStatus> memoryStatusList = memoryStatusListFactory.create(auditList);
-        Collections.reverse(memoryStatusList);
-        return memoryStatusList;
+        return statusGroupFactory.create(auditList);
     }
 
 }

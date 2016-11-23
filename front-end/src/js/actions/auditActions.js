@@ -1,11 +1,10 @@
 import axios from "axios";
 
 
-
 export function getAuditList(machine) {
   if(machine && machine.ip) {
   	return function(dispatch) {
-	    axios.get("http://localhost:8081/audit/memory?ipRunnerMachine=" + machine.ip)
+	    axios.get("http://localhost:8081/audit/status?ipRunnerMachine=" + machine.ip)
 	      .then((response) => {
 	        dispatch({type: "FETCH_AUDIT_SUCCESS", payload: response.data})
 	      })
