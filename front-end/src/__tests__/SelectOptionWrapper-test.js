@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import {render} from 'enzyme';
+import {shallow} from 'enzyme';
 import {expect} from 'chai';
 import SelectOptionWrapper from '../js/components/wrapper/SelectOptionWrapper.jsx';
 
@@ -10,9 +10,9 @@ import SelectOptionWrapper from '../js/components/wrapper/SelectOptionWrapper.js
 describe('SelectOptionWrapper', () => {
 
   it('renders correctly', () => {
-    const wrapper = render(<SelectOptionWrapper label="title" key="b" value="val" />);
+    const wrapper = shallow(<SelectOptionWrapper label="title" key="b" value="val" />);
  	expect(wrapper).to.have.text('title');
  	expect(wrapper.find('option')).to.have.value('val')
- 	expect(wrapper.find('option')).to.have.html('<option value="val">title</option>')
+ 	expect(wrapper.find('option')).to.have.html('<option value="val">title</option>') 	
   });
 });
