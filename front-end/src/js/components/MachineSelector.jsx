@@ -34,10 +34,15 @@ class MachineSelector extends React.Component {
   }
 
   render() {     
-    let mappedMachine = this.props.machineList.map(machine =>  <SelectOptionWrapper value={machine.ip} label={machine.ip} key={machine.ip} />)
-    
+    const divMachineStyle = {
+      width: '150px',
+      marginLeft: '20px'
+    };
+
+    let mappedMachine = this.props.machineList.map(machine =>  <SelectOptionWrapper value={machine.ip} label={machine.ip} key={machine.ip} />)    
     let html;            
     html = (
+    <div style={divMachineStyle}>
        <Form>   
           <FormGroup controlId="formControlsSelect" >
             <ControlLabel>IP Machine</ControlLabel>
@@ -47,6 +52,7 @@ class MachineSelector extends React.Component {
             </FormControl>
           </FormGroup>         
         </Form>
+    </div>
     )    
     return (html);
   }

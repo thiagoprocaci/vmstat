@@ -33,8 +33,8 @@ class VmstatCharts extends React.Component {
   }
 
   render() { 
-	const { machineList, memoryStatusList, pagesStatusList, cpuStatusList  } = this.props;			
-	
+
+	const { machineList, memoryStatusList, pagesStatusList, cpuStatusList  } = this.props;				
 	let html;	
 	html =  (<div>			  	
 			  	<div>

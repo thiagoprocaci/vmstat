@@ -1,6 +1,7 @@
 import React from "react";
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import ChartTitle from './ChartTitle.jsx';
 
 class MemoryLineChart extends React.Component {
   
@@ -14,8 +15,8 @@ class MemoryLineChart extends React.Component {
     if(this.props.memoryStatusList && this.props.memoryStatusList.length > 0) {
       html = (
         <div>
-          Memory Chart (GB)
-          <LineChart width={800} height={600} data={this.props.memoryStatusList}>
+         <ChartTitle label="Memory Chart (GB)"></ChartTitle>          
+          <LineChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={800} height={600} data={this.props.memoryStatusList}>
                  <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
                  <YAxis/>
                  <CartesianGrid strokeDasharray="3 3"/>

@@ -1,6 +1,7 @@
 import React from "react";
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import ChartTitle from './ChartTitle.jsx';
 
 class PagesLineChart extends React.Component {
   
@@ -14,8 +15,8 @@ class PagesLineChart extends React.Component {
     if(this.props.pagesStatusList && this.props.pagesStatusList.length > 0) {
       html = (
         <div>
-          Pages
-          <LineChart width={800} height={600} data={this.props.pagesStatusList}>
+          <ChartTitle label="Pages"></ChartTitle>          
+          <LineChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={800} height={600} data={this.props.pagesStatusList}>
                  <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
                  <YAxis/>
                  <CartesianGrid strokeDasharray="3 3"/>
