@@ -1,5 +1,4 @@
 import React from "react";
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {LineChart, BarChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import ChartTitle from './ChartTitle.jsx';
 

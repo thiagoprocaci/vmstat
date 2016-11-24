@@ -1,5 +1,4 @@
 import React from "react";
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import ChartTitle from './ChartTitle.jsx';
 

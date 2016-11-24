@@ -6,7 +6,7 @@ import Login from './Login.jsx';
 
 import { isAuthenticated } from "../actions/loginActions";
 
-
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
 @connect((store) => {

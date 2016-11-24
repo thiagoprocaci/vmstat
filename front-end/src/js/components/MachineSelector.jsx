@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux"
 
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
 import { Form } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';

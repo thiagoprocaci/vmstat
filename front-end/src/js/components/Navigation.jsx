@@ -2,7 +2,7 @@ import React from "react";
 import { IndexLink, Link } from "react-router";
 import { connect } from "react-redux"
 
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
 import { Navbar } from 'react-bootstrap';
 import { NavItem } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
