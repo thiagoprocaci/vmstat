@@ -15,7 +15,7 @@ class MemoryLineChart extends React.Component {
       html = (
         <div>
          <ChartTitle label="Memory Chart (GB)"></ChartTitle>          
-          <LineChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={800} height={600} data={this.props.memoryStatusList}>
+          <LineChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={770} height={400} data={this.props.memoryStatusList}>
                  <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
                  <YAxis/>
                  <CartesianGrid strokeDasharray="3 3"/>

@@ -7,6 +7,8 @@ import CpuLineChart from './chart/CpuLineChart.jsx';
 import PagesLineChart from './chart/PagesLineChart.jsx';
 
 import MemoryTable from './table/MemoryTable.jsx';
+import CpuTable from './table/CpuTable.jsx';
+import PagesTable from './table/PagesTable.jsx';
 
 import PerspectiveSelector from './PerspectiveSelector.jsx';
 
@@ -58,14 +60,14 @@ class VmstatCharts extends React.Component {
 	
 	let html;	
 	html =  (<div>	
-				<MachineSelector machineList={machineList} onSelectMachine={this.selectMachine.bind(this)} />		  	
-				<PerspectiveSelector onClickPerspective={this.clickPerspective.bind(this)} display={machineSelected} />			  				  	
-				<MemoryLineChart memoryStatusList={memoryStatusList} perspective={perspective}></MemoryLineChart>			    
-				<CpuLineChart cpuStatusList={cpuStatusList} perspective={perspective}></CpuLineChart>			    
-				<PagesLineChart pagesStatusList={pagesStatusList} perspective={perspective}></PagesLineChart>			    
-				<MemoryTable memoryStatusList={memoryStatusList} perspective={perspective}></MemoryTable>		    
-
-			    	    			    			    
+    				<MachineSelector machineList={machineList} onSelectMachine={this.selectMachine.bind(this)} />		  	
+    				<PerspectiveSelector onClickPerspective={this.clickPerspective.bind(this)} display={machineSelected} />			  				  	
+    				<MemoryLineChart memoryStatusList={memoryStatusList} perspective={perspective}></MemoryLineChart>			    
+    				<CpuLineChart cpuStatusList={cpuStatusList} perspective={perspective}></CpuLineChart>			    
+    				<PagesLineChart pagesStatusList={pagesStatusList} perspective={perspective}></PagesLineChart>			    
+    				<MemoryTable memoryStatusList={memoryStatusList} perspective={perspective}></MemoryTable>    	
+    				<CpuTable cpuStatusList={cpuStatusList} perspective={perspective}></CpuTable>			    
+            <PagesTable pagesStatusList={pagesStatusList} perspective={perspective}></PagesTable>                
 			  </div> 
 		    )
 	

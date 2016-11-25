@@ -13,7 +13,7 @@ class PerspectiveSelector extends React.Component {
 
   render() {     
     const divPerspectiveStyle = {
-      width: '150px',
+      width: '350px',
       marginLeft: '20px'
     };    
           

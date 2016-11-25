@@ -16,7 +16,7 @@ class CpuLineChart extends React.Component {
       html = (
         <div>
           <ChartTitle label="CPU Ticks"></ChartTitle>          
-          <BarChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={800} height={600} data={this.props.cpuStatusList}>
+          <BarChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }} width={700} height={400} data={this.props.cpuStatusList}>
                  <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
                  <YAxis/>
                  <CartesianGrid strokeDasharray="3 3"/>
