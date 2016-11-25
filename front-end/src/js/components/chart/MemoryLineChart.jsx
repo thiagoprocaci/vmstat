@@ -11,7 +11,7 @@ class MemoryLineChart extends React.Component {
 
   render() {      
     let html = (<div></div>);       
-    if(this.props.memoryStatusList && this.props.memoryStatusList.length > 0) {
+    if(this.props.memoryStatusList && this.props.memoryStatusList.length > 0 && this.props.perspective === 'memory') {
       html = (
         <div>
          <ChartTitle label="Memory Chart (GB)"></ChartTitle>          

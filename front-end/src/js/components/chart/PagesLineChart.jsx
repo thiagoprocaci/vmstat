@@ -11,7 +11,7 @@ class PagesLineChart extends React.Component {
 
   render() {      
     let html = (<div></div>);       
-    if(this.props.pagesStatusList && this.props.pagesStatusList.length > 0) {
+    if(this.props.pagesStatusList && this.props.pagesStatusList.length > 0 && this.props.perspective === 'pages') {
       html = (
         <div>
           <ChartTitle label="Pages"></ChartTitle>          

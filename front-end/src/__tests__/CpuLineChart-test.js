@@ -23,7 +23,7 @@ describe('CpuLineChart', () => {
          "stolenCpuTicks":0
       }]
 
-    const wrapper = shallow(<CpuLineChart cpuStatusList={cpuStatusList}  />); 	
+    const wrapper = shallow(<CpuLineChart cpuStatusList={cpuStatusList} perspective='cpu' />); 	
     //console.log(wrapper.debug())
     expect(wrapper.find('ChartTitle')).to.have.html('<div style="width:100%;margin-top:10px;margin-left:20px;"><h4>CPU Ticks</h4></div>') 
     expect(wrapper.find('XAxis').prop('height')).to.equal(30)
@@ -36,7 +36,7 @@ describe('CpuLineChart', () => {
   it('renders nothing', () => {
   	const cpuStatusList = []
 
-    const wrapper = shallow(<CpuLineChart cpuStatusList={cpuStatusList}  />); 	    
+    const wrapper = shallow(<CpuLineChart cpuStatusList={cpuStatusList} perspective='cpu' />); 	    
     expect(wrapper.find('div')).to.have.length(1);
     expect(wrapper.find('div')).to.have.html('<div></div>')     
   });

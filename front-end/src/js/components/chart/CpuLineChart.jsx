@@ -12,7 +12,7 @@ class CpuLineChart extends React.Component {
 
   render() {      
     let html = (<div></div>);       
-    if(this.props.cpuStatusList && this.props.cpuStatusList.length > 0) {
+    if(this.props.cpuStatusList && this.props.cpuStatusList.length > 0 && this.props.perspective === 'cpu') {
       html = (
         <div>
           <ChartTitle label="CPU Ticks"></ChartTitle>          
