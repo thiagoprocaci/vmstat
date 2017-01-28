@@ -1,13 +1,16 @@
 # vmstat
+Simple application to observe the results of the "vmstat" command in a Linux environment. The application is composed of 3 components: back-end, front-end, and a bash script. The bash script is responsible for sending the machine status to the back-end written in Java. The front-end, written using react js shows the status saved. 
+
+I also wrote some unit test for the back-end (using JUnit and mockito) and for the front-end (using enzime and chai).
 
 ### Setup
-- Install node version 4.4.7
-- Install npm version 2.15.8
+- Install node version 4.4.5
+- Install npm version 4.1.2
 - Install Oracle Java jdk 1.8
 - Install Maven 3.x
 - Add Java and Maven to the env variable PATH 
 
-Everything tested on ubuntu 16
+Everything tested on ubuntu 15.10
 
 ### Install
 - In the folder back-end run "mvn install"

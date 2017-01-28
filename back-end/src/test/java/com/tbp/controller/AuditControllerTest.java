@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletRequest;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class AuditControllerTest {
         assertTrue(AuditController.class.isAnnotationPresent(RequestMapping.class));
         assertEquals("audit", AuditController.class.getAnnotation(RequestMapping.class).value()[0]);
 
-        Method startsAuditing = AuditController.class.getDeclaredMethod("startsAuditing", String.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class);
+        Method startsAuditing = AuditController.class.getDeclaredMethod("startsAuditing",  Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, Long.class, ServletRequest.class);
         assertFalse(startsAuditing.isAnnotationPresent(CrossOrigin.class));
         assertTrue(startsAuditing.isAnnotationPresent(RequestMapping.class));
         assertEquals(RequestMethod.PUT, startsAuditing.getAnnotation(RequestMapping.class).method()[0]);
@@ -118,8 +119,10 @@ public class AuditControllerTest {
                 swapCache,  totalSwap,  usedSwap,  freeSwap,  nonNiceUserCpuTicks,  niceUserCpuTicks,  systemCpuTicks,  idleCpuTicks,  ioWaitCpuTicks,  irqCpuTicks,  softirqCpuTicks,
                 stolenCpuTicks,  pagesPagedIn,  pagesPagedOut,  pagesSwappedIn,  pagesSwappedOut,  interrupts,  cpuContextSwitches,  bootTime,  forks)).thenReturn(a);
         when(auditRepository.save(a)).thenReturn(a);
+        ServletRequest servletRequest = mock(ServletRequest.class);
+        when(servletRequest.getRemoteAddr()).thenReturn(ip);
 
-        Audit a2 = auditController.startsAuditing(ip,  totalMemory,  usedMemory,  activeMemory,  inactiveMemory,  freeMemory,  bufferMemory,  swapCache,  totalSwap,  usedSwap,  freeSwap,  nonNiceUserCpuTicks,  niceUserCpuTicks,  systemCpuTicks,  idleCpuTicks,  ioWaitCpuTicks,  irqCpuTicks,  softirqCpuTicks,  stolenCpuTicks,  pagesPagedIn,  pagesPagedOut,  pagesSwappedIn,  pagesSwappedOut,  interrupts,  cpuContextSwitches,  bootTime,  forks);
+        Audit a2 = auditController.startsAuditing( totalMemory,  usedMemory,  activeMemory,  inactiveMemory,  freeMemory,  bufferMemory,  swapCache,  totalSwap,  usedSwap,  freeSwap,  nonNiceUserCpuTicks,  niceUserCpuTicks,  systemCpuTicks,  idleCpuTicks,  ioWaitCpuTicks,  irqCpuTicks,  softirqCpuTicks,  stolenCpuTicks,  pagesPagedIn,  pagesPagedOut,  pagesSwappedIn,  pagesSwappedOut,  interrupts,  cpuContextSwitches,  bootTime,  forks, servletRequest);
         verify(auditRepository).save(a);
         assertEquals(a, a2);
     }
